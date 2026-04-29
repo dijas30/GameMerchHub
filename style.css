@@ -1,0 +1,959 @@
+/* ==========================================
+   FONT IMPORT
+   ========================================== */
+@import url("https://fonts.cdnfonts.com/css/super-pixel");
+
+
+/* ==========================================
+   CSS VARIABLES
+   ========================================== */
+:root 
+{
+  --primary-color: rgb(131, 22, 255);           /* Main Purple Color */
+  --secondary-color: rgba(84, 0, 181, 0.9);     /* Dark Purple */
+  --tertiary-color: rgba(0, 0, 0, 0.9);         /* Black */
+  --boxShadow-color:rgba(131, 22, 255, 0.3);
+  --padding: 0.5rem;                             /* Standard Padding */
+  --margin: 1rem;                                 /* Standard margin */
+  --transition: all 0.3s;                        /* Smooth Transition */
+  --border-radius: 0.6rem;                       /* Rounded Corners */
+  --box-shadow: 0.1rem 0.2rem 0.8rem rgba(205, 202, 202, 0.5); /* Shadow Effect */
+}
+
+
+/* ==========================================
+   RESET & COMMON STYLES
+   ========================================== */
+* 
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  outline: none;
+}
+
+html 
+{
+  scroll-behavior: smooth;
+}
+
+body 
+{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main 
+{
+  flex: 1;
+}
+
+img 
+{
+  width: 100%;
+  height: auto;
+}
+
+/* Flex Layout Helper Class */
+.flex-space-around 
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* ==========================================
+   NAVIGATION BAR (NAVBAR)
+   ========================================== */
+
+/* Mobile Menu Icon (Hidden by default) */
+#menu-icon 
+{
+  display: none;
+}
+
+/* Navigation Container */
+nav 
+{
+  font-family: "Slimlines", sans-serif;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Upper Navigation (Logo, User) */
+.nav-upper 
+{
+  min-height: 10vh;
+  background-color: var(--primary-color);
+  padding: var(--padding);
+}
+
+/* Navigation List Items */
+.nav-list 
+{
+  transition: var(--transition);
+}
+
+.nav-list:hover 
+{
+  color: black;
+}
+
+/* Navigation Links */
+.nav-link 
+{
+  color: white;
+  transition: var(--transition);
+}
+
+.nav-link:hover 
+{
+  color: black;
+}
+
+/* Logo Image Size */
+.nav-upper .nav-list a img 
+{
+  width: 15rem;
+  transition: var(--transition);
+}
+
+/* Lower Navigation (Register, Contact, etc.) */
+.nav-lower 
+{
+  min-height: 10vh;
+  background-color: var(--secondary-color);
+}
+
+
+/* ==========================================
+   HEADER SECTION (Banner)
+   ========================================== */
+.header 
+{
+  padding: 4rem auto;
+  height: 80vh;
+  background: url(./image/background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.banner 
+{
+  width: 100%;
+  height: 100%;
+}
+
+/* Banner Title Text */
+.banner-title 
+{
+  font-family: "Super Pixel", sans-serif;
+  font-size: 4rem;
+  color: white;
+  padding-top: 15rem;
+  border-radius: var(--border-radius);
+}
+
+
+/* ==========================================
+   PRODUCT SECTION - FILTER BUTTONS
+   ========================================== */
+
+/* Filter Buttons Container */
+.filter-buttons 
+{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: var(--border-radius);
+}
+
+/* Individual Filter Button */
+.filter-btn 
+{
+  padding: 0.8rem 1.5rem;
+  background-color: white;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+/* Filter Button Hover Effect */
+.filter-btn:hover 
+{
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Active Filter Button (Selected Category) */
+.filter-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.card
+{
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  transition: var(--transition);
+}
+
+.card:hover
+{
+  box-shadow: 0.1rem 0.2rem 0.8rem rgba(205, 202, 202, 1);
+}
+
+/* ==========================================
+   PRODUCT SECTION - SEARCH BOX
+   ========================================== */
+
+/* Search Box Container */
+.search-box-container 
+{
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem 2rem 2rem;
+}
+
+/* Search Input Field */
+.search-box 
+{
+  width: 100%;
+  max-width: 600px;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  outline: none;
+}
+
+/* Search Box Focus Effect */
+.search-box:focus 
+{
+  box-shadow: 0 0 10px var(--boxShadow-color);
+}
+
+
+/* ==========================================
+   PRODUCT SECTION - CATEGORIES
+   ========================================== */
+
+/* Category Section Wrapper (PS5, Xbox, etc.) */
+.category-section 
+{
+  display: block;
+}
+
+/* Hidden Category (When Filter is Applied) */
+.category-section.hidden 
+{
+  display: none;
+}
+
+/* Category Title (e.g., "PS5 Games") */
+.category-title 
+{
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin: 2rem 0 1rem 2rem;
+  border-left: 5px solid var(--primary-color);
+  padding-left: 15px;
+}
+
+
+/* ==========================================
+   PRODUCT SECTION - PRODUCT GRID
+   ========================================== */
+
+/* Product Grid Layout (3 Columns) */
+.product-grid 
+{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 0 2rem 3rem 2rem;
+}
+
+/* Single Product Box */
+.product-box 
+{
+  background-color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+/* Product Box Hover Effect */
+.product-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem var(--boxShadow-color);
+}
+
+
+/* ==========================================
+   PRODUCT SECTION - PRODUCT IMAGE
+   ========================================== */
+
+/* Product Image Container */
+.product-image 
+{
+  width: 100%;
+  height: 250px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+/* Product Image (Actual Image Tag) */
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* ==========================================
+   PRODUCT SECTION - PRODUCT INFO
+   ========================================== */
+
+/* Product Info Container (Name & Price) */
+.product-info 
+{
+  padding: 1rem;
+}
+
+/* Product Name */
+.product-name 
+{
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+/* Product Price */
+.product-price 
+{
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+
+/* ==========================================
+   FOOTER SECTION
+   ========================================== */
+footer 
+{
+  color: white;
+  background-color: var(--tertiary-color);
+  text-decoration: none;
+}
+
+/* Footer Links */
+.foot-link 
+{
+  color: white;
+  transition: var(--transition);
+}
+
+/* Footer Link Hover Effect */
+.foot-link:hover 
+{
+  color: var(--primary-color);
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN - MOBILE (Max-width: 992px)
+   ========================================== */
+@media (max-width: 992px) 
+{
+  
+  /* Show Mobile Menu Icon */
+  #menu-icon 
+  {
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    cursor: pointer;
+    color: white;
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    width: fit-content;
+  }
+
+  /* Hidden Class for Mobile Menu */
+  .hidden 
+  {
+    display: none;
+  }
+
+  /* Flex Layout for Mobile */
+  .flex-space-around 
+  {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .flex-center 
+  {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  /* Visible Mobile Menu */
+  #menu:not(.hidden) 
+  {
+    background-color: var(--secondary-color);
+  }
+
+  /* Product Grid - 1 Column for Mobile */
+  .product-grid 
+  {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-items, .cart-payment
+  {
+    width: 90%;
+  }
+}
+
+
+/* ==========================================
+   RESPONSIVE DESIGN - DESKTOP (Min-width: 993px)
+   ========================================== */
+@media (min-width: 993px) 
+{
+  
+  /* Hide Mobile Menu Icon on Desktop */
+  #menu-icon 
+  {
+    display: none !important;
+  }
+
+  /* Show Navigation Upper Bar */
+  .nav-upper
+  {
+    display: flex !important;
+  }
+
+  /* Show Full Navigation Menu */
+  #menu 
+  {
+    display: block !important;
+  }
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+
+/* ==========================================
+   PRODUCT DETAILS PAGE CSS
+   ========================================== */
+.product-details-left
+{
+  flex: 1;
+}
+
+.product-details-img
+{
+  padding-left: var(--padding)
+}
+
+.product-details-right
+{
+  flex: 1;
+}
+
+.btn 
+{
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-top: var(--margin);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover
+{
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+.product-btn 
+{
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.product-btn:hover 
+{
+  background-color: var(--secondary-color);
+  transform: translateY(-3px);
+}
+
+/* -------------------------------------------------------------------------------------------------- */
+
+/* ==========================================
+   Cart PAGE CSS
+   ========================================== */
+.cart
+{
+  padding: var(--padding);
+  gap: 1rem;
+}
+
+.cart-items
+{
+  flex: 1;
+}
+
+.cart .card
+{
+  margin-bottom: 1rem;
+}
+
+.cart-items-action
+{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item input
+{
+  flex: 0.1;
+}
+
+.cart-item-image
+{
+  flex: 0.2;
+  width: 15rem;
+  height: 10rem;
+}
+
+.cart-item-description
+{
+  flex: 0.4;
+}
+
+.cart-items-action
+{
+  flex: 0.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-item-shipping
+{
+  margin-top: 0.5rem;
+  color: red;
+}
+
+.cart-payment
+{
+  flex: 1;
+}
+
+.cart-payment-summery > div
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin:1rem;
+}
+
+.cart-payment-method > h2
+{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cart-payment-method > div
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ------------------------------------------------------------------------------------- */
+
+
+/* ==========================================
+   PROFILE PAGE CSS
+   ========================================== */
+
+/* Profile Container */
+.profile-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+/* Section Heading */
+.section-heading {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* ==========================================
+   PROFILE INFO SECTION
+   ========================================== */
+
+.profile-info 
+{
+  margin-bottom: 2rem;
+}
+
+.profile-details 
+{
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* Profile Picture */
+.profile-picture 
+{
+  flex: 0.3;
+  text-align: center;
+}
+
+.profile-picture img 
+{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.btn-small 
+{
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.btn-small:hover 
+{
+  background-color: var(--secondary-color);
+}
+
+/* Profile Data */
+.profile-data 
+{
+  flex: 0.7;
+}
+
+.info-row 
+{
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.info-label 
+{
+  flex: 0.3;
+  font-weight: bold;
+  color: #666;
+}
+
+.info-value 
+{
+  flex: 0.7;
+  color: #333;
+}
+
+/* ==========================================
+   ORDER HISTORY TABLE
+   ========================================== */
+
+.order-history 
+{
+  margin-bottom: 2rem;
+}
+
+/* Table Container (for horizontal scroll on mobile) */
+.table-container 
+{
+  overflow-x: auto;
+}
+
+/* Order Table */
+.order-table 
+{
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+/* Table Header */
+.order-table thead 
+{
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.order-table th 
+{
+  padding: 1rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+/* Table Body */
+.order-table tbody tr 
+{
+  border-bottom: 1px solid #f0f0f0;
+  transition: var(--transition);
+}
+
+.order-table tbody tr:hover 
+{
+  background-color: #f9f9f9;
+}
+
+.order-table td 
+{
+  padding: 1rem;
+  color: #333;
+}
+
+/* Serial Number Column */
+.order-table td:first-child 
+{
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+/* Key/Code Styling */
+.key-code 
+{
+  background-color: #f0f0f0;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--border-radius);
+  font-family: monospace;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* No Orders Message */
+.no-orders 
+{
+  text-align: center;
+  padding: 3rem;
+  color: #999;
+}
+
+.no-orders i 
+{
+  font-size: 4rem;
+  color: #ddd;
+  margin-bottom: 1rem;
+}
+
+.no-orders p 
+{
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------- */
+
+/* ==========================================
+   LOGIN, REGISTER, CONTACT PAGE CSS
+   ========================================== */
+
+/* Form এর বাইরের box - page এর মাঝখানে */
+.form-container {
+    width: 400px;               /* Box এর width */
+    margin: 3rem auto;          /* উপর-নিচ margin, center করা */
+    padding: 1rem;              /* ভিতরে spacing */
+}
+
+/* Form এর card/box */
+.form-card {
+    background: white;          /* সাদা background */
+    padding: 2rem;              /* ভিতরে space */
+    border-radius: 10px;        /* rounded corners */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);  /* shadow effect */
+}
+
+/* ========== Form Header (উপরের অংশ) ========== */
+.form-header {
+    text-align: center;         /* মাঝখানে align */
+    margin-bottom: 2rem;        /* নিচে space */
+}
+
+.form-header i {
+    font-size: 50px;            /* icon size */
+    color: rgb(131, 22, 255);   /* purple color */
+}
+
+.form-header h2 {
+    color: rgb(131, 22, 255);   /* purple color */
+    font-size: 24px;            /* heading size */
+    margin: 10px 0;             /* উপর-নিচ space */
+}
+
+.form-header p {
+    color: #666;                /* grey color */
+    font-size: 14px;            /* small text */
+}
+
+/* ========== Form Groups (প্রতিটা input field) ========== */
+.form-group {
+    margin-bottom: 15px;        /* নিচে space */
+}
+
+/* Label (input এর উপরে text) */
+.form-group label {
+    display: block;             /* নতুন line এ */
+    margin-bottom: 8px;         /* নিচে space */
+    color: #333;                /* dark grey */
+    font-weight: bold;          /* bold text */
+    font-size: 14px;
+}
+
+/* Input Box */
+.form-group input,
+.form-group textarea {
+    width: 100%;                /* পুরো width */
+    padding: 12px;              /* ভিতরে space */
+    border: 2px solid #ddd;     /* grey border */
+    border-radius: 8px;         /* rounded corners */
+    font-size: 14px;
+}
+
+/* Input এ click করলে */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgb(131, 22, 255);  /* purple border */
+    outline: none;                     /* default outline remove */
+    box-shadow: 0 0 5px rgba(131, 22, 255, 0.3);  /* purple glow */
+}
+
+/* Textarea (message box) */
+.form-group textarea {
+    height: 120px;              /* height বাড়ানো */
+    resize: vertical;           /* শুধু vertical resize */
+}
+
+/* ========== Form Options (checkbox, links) ========== */
+.form-options {
+    display: flex;              /* side by side */
+    justify-content: space-between;  /* দুই পাশে align */
+    align-items: center;        /* vertical center */
+    margin-bottom: 15px;        /* নিচে space */
+    font-size: 14px;
+}
+
+/* Checkbox Label */
+.checkbox-label {
+    display: flex;              /* side by side */
+    align-items: center;        /* vertical center */
+    gap: 8px;                   /* মাঝে space */
+}
+
+.checkbox-label input {
+    width: auto;                /* checkbox normal size */
+}
+
+/* Links (Forgot Password, etc.) */
+.forgot-link {
+    color: rgb(131, 22, 255);   /* purple */
+    text-decoration: none;      /* underline remove */
+}
+
+.forgot-link:hover {
+    text-decoration: underline; /* hover এ underline */
+}
+
+/* ========== Submit Button ========== */
+.auth-form button {
+    width: 100%;                /* পুরো width */
+    padding: 14px;              /* ভিতরে space */
+    background: rgb(131, 22, 255);  /* purple background */
+    color: white;               /* white text */
+    border: none;               /* border remove */
+    border-radius: 8px;         /* rounded corners */
+    font-size: 16px;            /* text size */
+    font-weight: bold;          /* bold */
+    cursor: pointer;            /* hand cursor */
+}
+
+/* Button এ hover করলে */
+.auth-form button:hover {
+    background: rgba(84, 0, 181, 0.9);  /* dark purple */
+}
+
+/* ========== Form Footer (নিচের লিংক) ========== */
+.form-footer {
+    text-align: center;         /* মাঝখানে */
+    margin-top: 15px;           /* উপরে space */
+    color: #666;                /* grey */
+    font-size: 14px;
+}
+
+.form-footer .link {
+    color: rgb(131, 22, 255);   /* purple */
+    text-decoration: none;      /* underline remove */
+    font-weight: bold;          /* bold */
+}
+
+.form-footer .link:hover {
+    text-decoration: underline; /* hover এ underline */
+}
